@@ -1,0 +1,17 @@
+ramdiskadm -a zfs_layer 64m
+dd if=/dev/zero of=/dev/ramdisk/zfs_layer count=64*1024*2 
+zpool destroy adsl-pool2
+
+#rem_drv zfs_lyr
+#./compile.sh 
+#./install_drv.sh
+#zpool create adsl-pool2 "/devices/pseudo/zfs_lyr@1:zfsminor1" 
+
+zpool create adsl-pool2 "/dev/ramdisk/zfs_layer" 
+#zfs set compression=off adsl-pool2
+
+zfs create adsl-pool2/myfs 
+#zfs set mountpoint adsl-pool2/myfs /code/myfs
+echo "remzi" > /adsl-pool2/myfs/a 
+mkdir /adsl-pool2/myfs/dir
+echo "abhi" > /adsl-pool2/myfs/dir/a

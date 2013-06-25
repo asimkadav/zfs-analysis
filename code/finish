@@ -1,0 +1,5 @@
+zpool destroy adsl-pool2
+#rem_drv zfs_lyr
+#rm /usr/kernel/drv/amd64/zfs_lyr
+#rm /usr/kernel/drv/zfs_lyr.conf
+ramdiskadm -d /dev/ramdisk/zfs_layer
